@@ -1,0 +1,17 @@
+1) copy/paste just crud commands from demo loan origination domain 
+2) start building all other commands using AgentBackedCommand (with ollama if it works)
+3) then I think McpConnector to show how claude code can operate the domain just like Foobara::Agent even though they are totally different
+
+Then what?
+
+a) Try to support creating these commands with DynamicCommand via a UI?
+b) vibe-code a front-end?
+  i) rails?
+  ii) rack w/ React/Typescript frontend? (ask judge if this would hurt?)
+c) attempt to use Autocrud to reduce number of implemented commands even further?
+
+
+So far:
+
+1) 10:40ish? Try breaking out a basic CRUD command out of DenyLoanFile command
+   
