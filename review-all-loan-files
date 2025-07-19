@@ -23,7 +23,7 @@ module FoobaraDemo
       depends_on StartUnderwriterReview, DenyLoanFile, ApproveLoanFile
 
       verbose
-      llm_model "qwen3:32b"
+      # llm_model "qwen3:32b"
       agent_name "Inner"
     end
 
@@ -36,7 +36,7 @@ module FoobaraDemo
       depends_on ReviewLoanFile, FindALoanFileThatNeedsReview
 
       verbose
-      llm_model "qwen3:32b"
+      # llm_model "qwen3:32b"
       agent_name "Outer"
     end
   end
