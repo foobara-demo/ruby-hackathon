@@ -101,7 +101,7 @@ if outcome.success?
       puts "Denied: #{name}"
       puts "Reason: #{decision.denied_reasons.join(", ")}"
     else
-      puts "Approve: #{name}"
+      puts "Approved: #{name}"
     end
     puts
   end
