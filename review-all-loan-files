@@ -68,11 +68,11 @@ module FoobaraDemo
       ApproveLoanFile,
       DenyLoanFile,
       ReviewLoanFile
-    ]
+    ].freeze
 
     NOT_OLLAMABLE = [
       ReviewAllLoanFiles
-    ]
+    ].freeze
   end
 end
 
@@ -80,11 +80,13 @@ FoobaraDemo::LoanOrigination.foobara_command_classes.each do |command_class|
   next unless command_class < Foobara::AgentBackedCommand
 
   command_class.verbose
-  llm_model = if FoobaraDemo::LoanOrigination::OLLAMABLE.include?(command_class)
-                "qwen3:32b"
-              else
-                "claude-3-7-sonnet-20250219"
-              end
+  # Works but takes 6.5 minutes instead of 1.5 minutes!
+  # llm_model = if FoobaraDemo::LoanOrigination::OLLAMABLE.include?(command_class)
+  #               "qwen3:32b"
+  #             else
+  #               "claude-3-7-sonnet-20250219"
+  #             end
+  llm_model = "claude-3-7-sonnet-20250219"
 
   command_class.llm_model(llm_model)
 end
