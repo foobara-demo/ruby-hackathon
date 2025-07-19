@@ -4,15 +4,6 @@ require_relative "boot"
 
 module FoobaraDemo
   module LoanOrigination
-    class UnderwriterSummary < Foobara::Model
-      attributes do
-        loan_file_id :integer, :required
-        pay_stub_count :integer, :required
-        fico_scores [:integer, :integer, :integer], :required
-        credit_policy CreditPolicy, :required
-      end
-    end
-
     class ApproveLoanFile < Foobara::AgentBackedCommand
       depends_on CreateUnderwriterDecision, TransitionLoanFileState
 
@@ -31,6 +22,15 @@ module FoobaraDemo
         credit_score_used :integer, :required
         denied_reasons [:denied_reason], :required
         loan_file LoanFile, :required
+      end
+    end
+
+    class UnderwriterSummary < Foobara::Model
+      attributes do
+        loan_file_id :integer, :required
+        pay_stub_count :integer, :required
+        fico_scores [:integer, :integer, :integer], :required
+        credit_policy CreditPolicy, :required
       end
     end
 
