@@ -53,6 +53,8 @@ module FoobaraDemo
     end
 
     class ReviewAllLoanFiles < Foobara::AgentBackedCommand
+      description "Reviews all loan files that need review until no more that need review are found."
+
       result [{
         applicant_name: :string,
         decision: LoanFile::UnderwriterDecision
@@ -60,16 +62,31 @@ module FoobaraDemo
 
       depends_on ReviewLoanFile, FindALoanFileThatNeedsReview
     end
+
+    OLLAMABLE = [
+      StartUnderwriterReview,
+      ApproveLoanFile,
+      DenyLoanFile,
+      ReviewLoanFile
+    ]
+
+    NOT_OLLAMABLE = [
+      ReviewAllLoanFiles
+    ]
   end
 end
-
-llm_model = nil
 
 FoobaraDemo::LoanOrigination.foobara_command_classes.each do |command_class|
   next unless command_class < Foobara::AgentBackedCommand
 
   command_class.verbose
-  command_class.llm_model(llm_model) if llm_model
+  llm_model = if FoobaraDemo::LoanOrigination::OLLAMABLE.include?(command_class)
+                "qwen3:32b"
+              else
+                "claude-3-7-sonnet-20250219"
+              end
+
+  command_class.llm_model(llm_model)
 end
 
 outcome = FoobaraDemo::LoanOrigination::ReviewAllLoanFiles.run
