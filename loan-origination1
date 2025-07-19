@@ -17,6 +17,8 @@ module FoobaraDemo
     class GenerateLoanFilesReport < Foobara::AgentBackedCommand
       result [ReportRow]
       depends_on FindAllLoanFiles
+
+      verbose
     end
   end
 end
