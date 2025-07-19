@@ -10,10 +10,10 @@ require "dotenv"
 require "foobara/load_dotenv"
 Foobara::LoadDotenv.run!(env:, dir: __dir__)
 
-require "foobara/ai"
+# require "foobara/ai"
 require "foobara/anthropic_api" if ENV.key?("ANTHROPIC_API_KEY")
 # require "foobara/open_ai_api" if ENV.key?("OPENAI_API_KEY")
-#  require "foobara/ollama_api" if ENV.key?("OLLAMA_API_URL")
+require "foobara/ollama_api" if ENV.key?("OLLAMA_API_URL")
 
 require "foobara/local_files_crud_driver"
 crud_driver = Foobara::LocalFilesCrudDriver.new(multi_process: true)

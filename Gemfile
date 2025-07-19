@@ -17,7 +17,7 @@ gem "foobara-agent-cli" # , path: "../../../foobara/agent-cli"
 gem "foobara-anthropic-api" # , path: "../../../foobara/anthropic-api"
 gem "foobara-dotenv-loader"
 gem "foobara-local-files-crud-driver"
-# gem 'foobara-ollama-api'
+gem "foobara-ollama-api"
 # gem 'foobara-open-ai-api' # , path: "../../../foobara/open-ai-api"
 gem "foobara-rubocop-rules"
 gem "foobara-sh-cli-connector" # , path: "/home/miles/gitlocal/foobara/sh-cli-connector"

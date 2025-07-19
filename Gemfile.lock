@@ -57,6 +57,8 @@ GEM
     foobara-local-files-crud-driver (0.0.10)
       foobara (~> 0.0.102)
     foobara-lru-cache (0.0.2)
+    foobara-ollama-api (1.0.0)
+      foobara-http-api-command
     foobara-rubocop-rules (1.0.0)
       rubocop
       rubocop-rspec
@@ -137,6 +139,7 @@ DEPENDENCIES
   foobara-demo-loan-origination!
   foobara-dotenv-loader
   foobara-local-files-crud-driver
+  foobara-ollama-api
   foobara-rubocop-rules
   foobara-sh-cli-connector
   irb
