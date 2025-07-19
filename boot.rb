@@ -3,6 +3,9 @@ env = ENV["FOOBARA_ENV"] ||= "development"
 ENV["BUNDLE_GEMFILE"] ||= File.expand_path("./Gemfile", __dir__)
 require "bundler/setup"
 
+# require "pry"
+# require "pry-byebug"
+
 require "dotenv"
 require "foobara/load_dotenv"
 Foobara::LoadDotenv.run!(env:, dir: __dir__)

@@ -20,8 +20,6 @@ module FoobaraDemo
         credit_score_used :integer, :required
         loan_file LoanFile, :required
       end
-
-      verbose
     end
 
     class DenyLoanFile < Foobara::AgentBackedCommand
@@ -34,8 +32,6 @@ module FoobaraDemo
         denied_reasons [:denied_reason], :required
         loan_file LoanFile, :required
       end
-
-      verbose
     end
 
     class ReviewLoanFile < Foobara::AgentBackedCommand
@@ -46,10 +42,6 @@ module FoobaraDemo
       result LoanFile::UnderwriterDecision
 
       depends_on StartUnderwriterReview, DenyLoanFile, ApproveLoanFile
-
-      verbose
-      # llm_model "qwen3:32b"
-      # agent_name "Inner"
     end
 
     class ReviewAllLoanFiles < Foobara::AgentBackedCommand
@@ -59,12 +51,17 @@ module FoobaraDemo
       }]
 
       depends_on ReviewLoanFile, FindALoanFileThatNeedsReview
-
-      verbose
-      # llm_model "qwen3:32b"
-      # agent_name "Outer"
     end
   end
+end
+
+llm_model = nil
+
+FoobaraDemo::LoanOrigination.foobara_command_classes.each do |command_class|
+  next unless command_class < Foobara::AgentBackedCommand
+
+  command_class.verbose
+  command_class.llm_model(llm_model) if llm_model
 end
 
 outcome = FoobaraDemo::LoanOrigination::ReviewAllLoanFiles.run
