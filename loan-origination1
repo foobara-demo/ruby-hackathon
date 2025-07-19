@@ -8,10 +8,13 @@ module FoobaraDemo
     class GenerateLoanFilesReport < Foobara::AgentBackedCommand
       result [
         {
-          id: :integer,
-          applicant: :string,
-          state: :string,
-          underwriter_decision: LoanFile::UnderwriterDecision
+          id: { type: :integer, required: true },
+          applicant: { type: :string, required: true },
+          state: { type: :string, required: true },
+          underwriter_decision: {
+            type: LoanFile::UnderwriterDecision,
+            description: "Denied reasons omitted if approved"
+          }
         }
       ]
 
