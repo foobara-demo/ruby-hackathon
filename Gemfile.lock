@@ -5,6 +5,19 @@ PATH
       foobara-local-files-crud-driver (< 2.0.0)
 
 PATH
+  remote: ../foobara/agent-backed-command
+  specs:
+    foobara-agent-backed-command (0.0.5)
+      foobara-agent (>= 0.0.1, < 2.0.0)
+
+PATH
+  remote: ../foobara/agent
+  specs:
+    foobara-agent (0.0.17)
+      foobara (>= 0.0.136, < 2.0.0)
+      foobara-llm-backed-command (>= 1.0.0, < 2.0.0)
+
+PATH
   remote: ../foobara/ai
   specs:
     foobara-ai (1.0.0)
@@ -24,11 +37,6 @@ GEM
       foobara-lru-cache (~> 0.0.2)
       foobara-util (>= 1.0.0)
       inheritable-thread-vars (~> 0.0.1)
-    foobara-agent (0.0.17)
-      foobara (>= 0.0.136, < 2.0.0)
-      foobara-llm-backed-command (>= 1.0.0, < 2.0.0)
-    foobara-agent-backed-command (0.0.5)
-      foobara-agent (>= 0.0.1, < 2.0.0)
     foobara-agent-cli (0.0.4)
       foobara-agent (~> 0.0.1)
     foobara-anthropic-api (1.0.1)
@@ -121,7 +129,8 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  foobara-agent-backed-command
+  foobara-agent!
+  foobara-agent-backed-command!
   foobara-agent-cli
   foobara-ai!
   foobara-anthropic-api

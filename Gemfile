@@ -4,7 +4,7 @@ gem 'foobara-demo-loan-origination', # github: "foobara-demo/loan-origination"
     path: '../foobara-demo/loan-origination'
 
 # gem "foobara", path: "../../../foobara/foobara"
-# gem "foobara-agent", path: "../../../foobara/agent"
+ gem "foobara-agent", path: "../foobara/agent"
 # gem "foobara-json-schema-generator", path: "../../../foobara/json-schema-generator"
 # gem "foobara-http-api-command", path: "../../../foobara/http-api-command"
 gem 'foobara-ai', path: '../foobara/ai'
@@ -12,7 +12,7 @@ gem 'foobara-ai', path: '../foobara/ai'
 
 # gem 'foobara-ai'
 # Why doesn't tihs reqiure foobara-ai???
-gem 'foobara-agent-backed-command' # , path: "../../../foobara/agent-backed-command"
+gem 'foobara-agent-backed-command'  , path: "../foobara/agent-backed-command"
 gem 'foobara-agent-cli' # , path: "../../../foobara/agent-cli"
 gem 'foobara-anthropic-api' # , path: "../../../foobara/anthropic-api"
 gem 'foobara-dotenv-loader'
